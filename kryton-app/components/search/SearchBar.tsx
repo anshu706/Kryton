@@ -17,15 +17,6 @@ const PLACEHOLDER_QUERIES = [
   'What is the future of space colonization?',
 ];
 
-const SUGGESTION_CHIPS = [
-  'Quantum Computing',
-  'Climate Change 2025',
-  'Neuroscience of Sleep',
-  'AI Safety Research',
-  'CRISPR Technology',
-  'Dark Matter Evidence',
-];
-
 export function SearchBar() {
   const { setQuery, setFilters, setPhase, filters } = useResearchStore();
   const [inputValue, setInputValue] = useState('');
@@ -282,45 +273,6 @@ export function SearchBar() {
             />
           </div>
         </motion.div>
-      </motion.div>
-
-      {/* Suggestion chips */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '8px',
-          justifyContent: 'center',
-          marginTop: '20px',
-        }}
-      >
-        {SUGGESTION_CHIPS.map((chip) => (
-          <motion.button
-            key={chip}
-            whileHover={{ scale: 1.05, borderColor: 'rgba(30,107,255,0.5)' }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              setInputValue(chip);
-              inputRef.current?.focus();
-            }}
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '100px',
-              padding: '6px 14px',
-              color: 'rgba(255,255,255,0.5)',
-              fontSize: '0.8rem',
-              cursor: 'pointer',
-              fontFamily: "'Inter', sans-serif",
-              transition: 'all 0.2s',
-            }}
-          >
-            {chip}
-          </motion.button>
-        ))}
       </motion.div>
     </motion.div>
   );

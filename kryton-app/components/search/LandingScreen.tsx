@@ -96,49 +96,6 @@ export function LandingScreen() {
         {/* Search bar */}
         <SearchBar />
 
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          style={{
-            display: 'flex',
-            gap: '40px',
-            alignItems: 'center',
-          }}
-        >
-          {[
-            { value: '50+', label: 'Sources per query' },
-            { value: '60s', label: 'Deep research' },
-            { value: 'AI', label: 'Video explainers' },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              style={{ textAlign: 'center' }}
-            >
-              <div
-                style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  color: '#1E6BFF',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                }}
-              >
-                {stat.value}
-              </div>
-              <div
-                style={{
-                  fontSize: '0.7rem',
-                  color: 'rgba(255,255,255,0.25)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

@@ -1,5 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'Kryton — Research, illuminated.',
@@ -19,7 +24,6 @@ export const metadata: Metadata = {
     description: 'AI-powered deep research platform.',
   },
   robots: { index: true, follow: true },
-  viewport: { width: 'device-width', initialScale: 1 },
 };
 
 export default function RootLayout({
