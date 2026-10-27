@@ -1,0 +1,305 @@
+/* ============================================================
+   globals.css — Kryton Design System
+   Colors: #05070D (black) · #1E6BFF (blue) · #FFFFFF (white)
+   ============================================================ */
+
+
+@import "tailwindcss";
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Brand Tokens ─────────────────────────────────────────── */
+:root {
+  --black:        #05070D;
+  --blue:         #1E6BFF;
+  --white:        #FFFFFF;
+
+  /* Blue opacity variants */
+  --blue-5:       rgba(30, 107, 255, 0.05);
+  --blue-10:      rgba(30, 107, 255, 0.10);
+  --blue-15:      rgba(30, 107, 255, 0.15);
+  --blue-20:      rgba(30, 107, 255, 0.20);
+  --blue-30:      rgba(30, 107, 255, 0.30);
+  --blue-40:      rgba(30, 107, 255, 0.40);
+  --blue-60:      rgba(30, 107, 255, 0.60);
+
+  /* White opacity variants */
+  --white-5:      rgba(255, 255, 255, 0.05);
+  --white-8:      rgba(255, 255, 255, 0.08);
+  --white-10:     rgba(255, 255, 255, 0.10);
+  --white-15:     rgba(255, 255, 255, 0.15);
+  --white-20:     rgba(255, 255, 255, 0.20);
+  --white-40:     rgba(255, 255, 255, 0.40);
+  --white-60:     rgba(255, 255, 255, 0.60);
+
+  /* Glow shadows */
+  --glow-sm:      0 0 10px rgba(30, 107, 255, 0.3);
+  --glow-md:      0 0 20px rgba(30, 107, 255, 0.4);
+  --glow-lg:      0 0 40px rgba(30, 107, 255, 0.5);
+  --glow-xl:      0 0 60px rgba(30, 107, 255, 0.6);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Radii */
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --radius-xl:    32px;
+}
+
+/* ── Base Reset ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Glass Card ───────────────────────────────────────────── */
+.glass-card {
+  background: var(--white-8);
+  border: 1px solid var(--white-10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--blue-40);
+  box-shadow: var(--glow-sm);
+}
+
+.glass-card--blue {
+  background: var(--blue-10);
+  border: 1px solid var(--blue-30);
+}
+
+/* ── Glow helpers ─────────────────────────────────────────── */
+.glow-sm  { box-shadow: var(--glow-sm); }
+.glow-md  { box-shadow: var(--glow-md); }
+.glow-lg  { box-shadow: var(--glow-lg); }
+.glow-xl  { box-shadow: var(--glow-xl); }
+
+/* ── Text gradient ────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--white) 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Blue accent border ───────────────────────────────────── */
+.border-glow {
+  border: 1px solid var(--blue-40);
+  box-shadow: var(--glow-sm);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--blue-30);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--blue-60); }
+
+/* ── Focus ring ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: var(--glow-sm); }
+  50%       { box-shadow: var(--glow-lg); }
+}
+
+@keyframes pulse-glow-ring {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0   rgba(30, 107, 255, 0.5),
+      0 0 20px  rgba(30, 107, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(30, 107, 255, 0),
+      0 0 30px  rgba(30, 107, 255, 0.4);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Utility animation classes ────────────────────────────── */
+.animate-float    { animation: float-y 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-glow-ring 2s ease-in-out infinite; }
+.animate-fade-in  { animation: fade-in 0.5s ease forwards; }
+.animate-fade-up  { animation: fade-in-up 0.6s ease forwards; }
+.animate-shimmer  {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(30, 107, 255, 0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-pulse-ring,
+  .animate-shimmer {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ── Markdown content styles ──────────────────────────────── */
+.markdown-body h1 { font-size: 1.75rem; margin: 1.5rem 0 0.75rem; }
+.markdown-body h2 { font-size: 1.375rem; margin: 1.25rem 0 0.5rem; color: var(--white); }
+.markdown-body h3 { font-size: 1.125rem; margin: 1rem 0 0.5rem; color: var(--white-60); }
+.markdown-body p  { margin: 0.75rem 0; color: var(--white-60); }
+.markdown-body ul,
+.markdown-body ol { margin: 0.5rem 0 0.5rem 1.5rem; color: var(--white-60); }
+.markdown-body li { margin: 0.25rem 0; }
+.markdown-body a  { color: var(--blue); text-decoration: underline; }
+.markdown-body code {
+  background: var(--white-8);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: 'Courier New', monospace;
+  color: var(--blue);
+}
+.markdown-body pre {
+  background: var(--white-5);
+  border: 1px solid var(--white-10);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.markdown-body blockquote {
+  border-left: 3px solid var(--blue);
+  padding-left: 1rem;
+  color: var(--white-40);
+  font-style: italic;
+  margin: 1rem 0;
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--white-10);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.markdown-body th { background: var(--blue-10); color: var(--white); font-weight: 600; }
+.markdown-body td { color: var(--white-60); }
+
+/* Citation inline button */
+.citation-ref {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--blue-15);
+  border: 1px solid var(--blue-30);
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  vertical-align: super;
+  line-height: 1;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.citation-ref:hover {
+  background: var(--blue-30);
+  box-shadow: var(--glow-sm);
+}
+.citation-ref.active {
+  background: var(--blue);
+  color: var(--white);
+}
