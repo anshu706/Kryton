@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useResearchStore } from '@/store/useResearchStore';
 
 const INTRO_KEY = 'kryton-intro-seen';
@@ -10,22 +10,34 @@ export function useIntro() {
   const [hasSeenIntro, setHasSeenIntro] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem(INTRO_KEY) === 'true';
-    setHasSeenIntro(seen);
-    if (seen) {
+    try {
+      const seen = typeof window !== 'undefined' && sessionStorage.getItem(INTRO_KEY) === 'true';
+      setHasSeenIntro(seen);
+      if (seen) {
+        setPhase('landing');
+      }
+    } catch {
+      setHasSeenIntro(true);
       setPhase('landing');
     }
   }, [setPhase]);
 
-  const completeIntro = () => {
-    sessionStorage.setItem(INTRO_KEY, 'true');
+  const completeIntro = useCallback(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem(INTRO_KEY, 'true');
+      }
+    } catch {
+      // storage disabled/quota
+    }
     setHasSeenIntro(true);
     setPhase('landing');
-  };
+  }, [setPhase]);
 
-  const skipIntro = () => {
+  const skipIntro = useCallback(() => {
     completeIntro();
-  };
+  }, [completeIntro]);
 
   return { hasSeenIntro, completeIntro, skipIntro };
 }
+

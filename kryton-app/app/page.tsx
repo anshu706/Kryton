@@ -14,57 +14,62 @@ const IntroOverlay = dynamic(
   { ssr: false }
 );
 
-// WorkspaceLayout will be built in Phase 4
-const WorkspacePlaceholder = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      gap: '16px',
-    }}
-  >
-    <div
-      style={{
-        width: '48px',
-        height: '48px',
-        border: '2px solid rgba(30,107,255,0.3)',
-        borderTop: '2px solid #1E6BFF',
-        borderRadius: '50%',
-        animation: 'spin 1s linear infinite',
-      }}
-    />
-    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-    <p
-      style={{
-        color: 'rgba(255,255,255,0.4)',
-        fontFamily: "'Inter', sans-serif",
-        fontSize: '0.875rem',
-        letterSpacing: '0.08em',
-      }}
-    >
-      Initializing workspace…
-    </p>
-  </motion.div>
+const WorkspaceLayout = dynamic(
+  () =>
+    import('@/components/workspace/WorkspaceLayout').then((m) => ({
+      default: m.WorkspaceLayout,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          gap: '16px',
+          backgroundColor: '#05070D',
+        }}
+      >
+        <div
+          style={{
+            width: '44px',
+            height: '44px',
+            border: '2px solid rgba(30,107,255,0.25)',
+            borderTop: '2px solid #1E6BFF',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+          }}
+        />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <p
+          style={{
+            color: 'rgba(255,255,255,0.4)',
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.85rem',
+            letterSpacing: '0.08em',
+          }}
+        >
+          Initializing deep research workspace…
+        </p>
+      </div>
+    ),
+  }
 );
 
 export default function Page() {
   const phase = useResearchStore((s) => s.phase);
 
   return (
-    <main
-      style={{ backgroundColor: '#05070D', minHeight: '100vh' }}
-    >
-      {/* Intro — client only, lazy loaded */}
+    <main style={{ backgroundColor: '#05070D', minHeight: '100vh' }}>
+      {/* Intro Overlay — client only, lazy loaded */}
       <IntroOverlay />
 
       {/* Phase-gated screens */}
       <AnimatePresence mode="wait">
-        {phase === 'landing' && (
+        {(phase === 'landing' || phase === 'intro') && (
           <motion.div
             key="landing"
             initial={{ opacity: 0 }}
@@ -84,7 +89,7 @@ export default function Page() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <WorkspacePlaceholder />
+            <WorkspaceLayout />
           </motion.div>
         )}
       </AnimatePresence>

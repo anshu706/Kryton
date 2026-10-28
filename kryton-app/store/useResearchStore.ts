@@ -136,9 +136,16 @@ export const useResearchStore = create<ResearchStore>()(
     }),
     {
       name: 'kryton-store',
-      storage: createJSONStorage(() =>
-        typeof window !== 'undefined' ? sessionStorage : localStorage
-      ),
+      storage: createJSONStorage(() => {
+        if (typeof window !== 'undefined') {
+          return sessionStorage;
+        }
+        return {
+          getItem: () => null,
+          setItem: () => {},
+          removeItem: () => {},
+        };
+      }),
       partialize: (s) => ({
         phase: s.phase,
         query: s.query,
