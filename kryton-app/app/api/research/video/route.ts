@@ -2,9 +2,6 @@ import { NextRequest } from 'next/server';
 import { complete, PROMPTS } from '@/lib/nvidia';
 import type { VideoScript } from '@/types';
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
-
 export async function POST(req: NextRequest) {
   try {
     const { query, report } = (await req.json()) as {
