@@ -85,13 +85,13 @@ export function SearchBar() {
         <motion.div
           animate={{
             boxShadow: isFocused
-              ? '0 0 0 2px rgba(30,107,255,0.6), 0 0 40px rgba(30,107,255,0.4), 0 0 80px rgba(30,107,255,0.2)'
-              : '0 0 20px rgba(30,107,255,0.2), 0 0 0 1px rgba(255,255,255,0.08)',
+              ? '0 0 0 2px rgba(221,2,0,0.6), 0 0 40px rgba(221,2,0,0.35), 0 0 80px rgba(85,16,13,0.4)'
+              : '0 0 20px rgba(85,16,13,0.3), 0 0 0 1px rgba(217,217,217,0.1)',
           }}
           transition={{ duration: 0.3 }}
           style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.12)',
+            background: 'rgba(85,16,13,0.25)',
+            border: '1px solid rgba(221,2,0,0.2)',
             borderRadius: '20px',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
@@ -108,7 +108,7 @@ export function SearchBar() {
             }}
           >
             <motion.div
-              animate={{ color: isFocused ? '#1E6BFF' : 'rgba(255,255,255,0.3)' }}
+              animate={{ color: isFocused ? '#DD0200' : 'rgba(217,217,217,0.4)' }}
               transition={{ duration: 0.2 }}
             >
               <Search size={20} />
@@ -127,7 +127,7 @@ export function SearchBar() {
                       position: 'absolute',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      color: 'rgba(255,255,255,0.25)',
+                      color: 'rgba(217,217,217,0.3)',
                       fontSize: '1rem',
                       pointerEvents: 'none',
                       whiteSpace: 'nowrap',
@@ -152,11 +152,11 @@ export function SearchBar() {
                   background: 'transparent',
                   border: 'none',
                   outline: 'none',
-                  color: '#FFFFFF',
+                  color: '#D9D9D9',
                   fontSize: '1rem',
                   width: '100%',
                   fontFamily: "'Inter', sans-serif",
-                  caretColor: '#1E6BFF',
+                  caretColor: '#DD0200',
                 }}
                 aria-label="Research query input"
                 id="kryton-search-input"
@@ -170,9 +170,9 @@ export function SearchBar() {
                 animate={{ opacity: 1 }}
                 style={{
                   fontSize: '0.7rem',
-                  color: 'rgba(255,255,255,0.2)',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  color: 'rgba(217,217,217,0.3)',
+                  background: 'rgba(217,217,217,0.06)',
+                  border: '1px solid rgba(217,217,217,0.1)',
                   borderRadius: '4px',
                   padding: '2px 8px',
                   letterSpacing: '0.05em',
@@ -191,14 +191,14 @@ export function SearchBar() {
               disabled={!inputValue.trim()}
               style={{
                 background: inputValue.trim()
-                  ? 'linear-gradient(135deg, #1E6BFF, #0047CC)'
-                  : 'rgba(255,255,255,0.06)',
+                  ? 'linear-gradient(135deg, #DD0200, #55100D)'
+                  : 'rgba(217,217,217,0.06)',
                 border: 'none',
                 borderRadius: '12px',
                 padding: '10px 20px',
                 color: inputValue.trim()
-                  ? '#FFFFFF'
-                  : 'rgba(255,255,255,0.25)',
+                  ? '#D9D9D9'
+                  : 'rgba(217,217,217,0.3)',
                 fontSize: '0.875rem',
                 fontWeight: 600,
                 cursor: inputValue.trim() ? 'pointer' : 'default',
@@ -206,7 +206,7 @@ export function SearchBar() {
                 letterSpacing: '0.02em',
                 transition: 'all 0.2s ease',
                 boxShadow: inputValue.trim()
-                  ? '0 0 20px rgba(30,107,255,0.4)'
+                  ? '0 0 20px rgba(221,2,0,0.45)'
                   : 'none',
                 flexShrink: 0,
               }}
@@ -218,7 +218,7 @@ export function SearchBar() {
           {/* Filter row */}
           <div
             style={{
-              borderTop: '1px solid rgba(255,255,255,0.06)',
+              borderTop: '1px solid rgba(217,217,217,0.08)',
               padding: '12px 20px',
               display: 'flex',
               alignItems: 'center',
@@ -253,7 +253,7 @@ export function SearchBar() {
               style={{
                 width: '1px',
                 height: '16px',
-                background: 'rgba(255,255,255,0.1)',
+                background: 'rgba(217,217,217,0.12)',
                 margin: '0 4px',
               }}
             />
@@ -299,10 +299,10 @@ function FilterPill({ icon, label, active, onClick }: FilterPillProps) {
         padding: '4px 12px',
         borderRadius: '100px',
         border: active
-          ? '1px solid rgba(30,107,255,0.5)'
-          : '1px solid rgba(255,255,255,0.08)',
-        background: active ? 'rgba(30,107,255,0.15)' : 'transparent',
-        color: active ? '#1E6BFF' : 'rgba(255,255,255,0.35)',
+          ? '1px solid rgba(221,2,0,0.6)'
+          : '1px solid rgba(217,217,217,0.1)',
+        background: active ? 'rgba(221,2,0,0.2)' : 'rgba(85,16,13,0.2)',
+        color: active ? '#DD0200' : 'rgba(217,217,217,0.5)',
         fontSize: '0.75rem',
         fontWeight: 500,
         cursor: 'pointer',

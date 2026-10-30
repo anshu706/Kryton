@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    if (process.env.NVIDIA_API_KEY) {
+    if (process.env.NVIDIA_API_KEY?.trim()) {
       try {
         const prompt = PROMPTS.videoScript(query, report || query);
         const raw = await complete(

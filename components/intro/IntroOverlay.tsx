@@ -11,10 +11,10 @@ export function IntroOverlay() {
 
   useEffect(() => {
     if (hasSeenIntro === false) {
-      // Auto-complete after 4.5 seconds if not skipped
+      // Auto-complete after 2.8 seconds if not skipped
       autoCompleteRef.current = setTimeout(() => {
         completeIntro();
-      }, 4500);
+      }, 2800);
     }
     return () => {
       if (autoCompleteRef.current) clearTimeout(autoCompleteRef.current);
@@ -28,7 +28,7 @@ export function IntroOverlay() {
         style={{
           position: 'fixed',
           inset: 0,
-          backgroundColor: '#05070D',
+          backgroundColor: '#1A0706',
           zIndex: 100,
         }}
       />
@@ -47,7 +47,7 @@ export function IntroOverlay() {
         style={{
           position: 'fixed',
           inset: 0,
-          backgroundColor: '#05070D',
+          backgroundColor: '#1A0706',
           zIndex: 100,
           display: 'flex',
           alignItems: 'center',
@@ -58,19 +58,19 @@ export function IntroOverlay() {
         {/* K Node Graph Canvas */}
         <KNodeGraph onComplete={completeIntro} />
 
-        {/* Skip button — appears after 1s */}
+        {/* Skip button — appears quickly */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.4 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
           onClick={skipIntro}
           style={{
             position: 'absolute',
             top: '24px',
             right: '24px',
-            background: 'rgba(255,255,255,0.08)',
-            border: '1px solid rgba(255,255,255,0.15)',
-            color: 'rgba(255,255,255,0.6)',
+            background: 'rgba(85,16,13,0.4)',
+            border: '1px solid rgba(221,2,0,0.25)',
+            color: 'rgba(217,217,217,0.7)',
             padding: '8px 20px',
             borderRadius: '100px',
             cursor: 'pointer',
@@ -82,19 +82,19 @@ export function IntroOverlay() {
             transition: 'all 0.2s ease',
           }}
           onMouseEnter={(e) => {
-            (e.target as HTMLButtonElement).style.color = '#FFFFFF';
+            (e.target as HTMLButtonElement).style.color = '#D9D9D9';
             (e.target as HTMLButtonElement).style.borderColor =
-              'rgba(30,107,255,0.5)';
+              'rgba(221,2,0,0.7)';
             (e.target as HTMLButtonElement).style.background =
-              'rgba(30,107,255,0.15)';
+              'rgba(221,2,0,0.2)';
           }}
           onMouseLeave={(e) => {
             (e.target as HTMLButtonElement).style.color =
-              'rgba(255,255,255,0.6)';
+              'rgba(217,217,217,0.7)';
             (e.target as HTMLButtonElement).style.borderColor =
-              'rgba(255,255,255,0.15)';
+              'rgba(221,2,0,0.25)';
             (e.target as HTMLButtonElement).style.background =
-              'rgba(255,255,255,0.08)';
+              'rgba(85,16,13,0.4)';
           }}
         >
           Skip intro

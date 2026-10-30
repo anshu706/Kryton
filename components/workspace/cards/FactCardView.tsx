@@ -21,17 +21,17 @@ export function FactCardView({ card, isFloating }: Props) {
       onClick={() => setHighlightedCardId(isHighlighted ? null : card.id)}
       style={{
         background: isHighlighted
-          ? 'linear-gradient(135deg, rgba(30,107,255,0.22), rgba(255,255,255,0.06))'
-          : 'rgba(255, 255, 255, 0.05)',
+          ? 'linear-gradient(135deg, rgba(221,2,0,0.25), rgba(85,16,13,0.5))'
+          : 'rgba(85,16,13,0.35)',
         border: isHighlighted
-          ? '1px solid #1E6BFF'
-          : '1px solid rgba(255, 255, 255, 0.12)',
+          ? '1px solid #DD0200'
+          : '1px solid rgba(85,16,13,0.75)',
         boxShadow: isHighlighted
-          ? '0 0 25px rgba(30,107,255,0.45)'
-          : '0 4px 20px rgba(0, 0, 0, 0.3)',
+          ? '0 0 25px rgba(221,2,0,0.5)'
+          : '0 4px 20px rgba(0, 0, 0, 0.4)',
         borderRadius: '16px',
         padding: '16px',
-        color: '#FFFFFF',
+        color: '#D9D9D9',
         width: isFloating ? '300px' : '100%',
         backdropFilter: 'blur(16px)',
         cursor: 'pointer',
@@ -52,7 +52,7 @@ export function FactCardView({ card, isFloating }: Props) {
             alignItems: 'center',
             gap: '5px',
             fontSize: '0.7rem',
-            color: '#1E6BFF',
+            color: '#DD0200',
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
             fontWeight: 600,
@@ -65,8 +65,8 @@ export function FactCardView({ card, isFloating }: Props) {
         <span
           style={{
             fontSize: '0.7rem',
-            color: 'rgba(255,255,255,0.4)',
-            background: 'rgba(255,255,255,0.06)',
+            color: 'rgba(217,217,217,0.6)',
+            background: 'rgba(85,16,13,0.4)',
             padding: '2px 6px',
             borderRadius: '4px',
           }}
@@ -78,7 +78,7 @@ export function FactCardView({ card, isFloating }: Props) {
       <p
         style={{
           fontSize: '0.85rem',
-          color: '#FFFFFF',
+          color: '#D9D9D9',
           lineHeight: 1.45,
           fontFamily: "'Inter', sans-serif",
           fontWeight: 400,

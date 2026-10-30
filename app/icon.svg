@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#55100D" />
+      <stop offset="100%" stop-color="#1A0706" />
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circular background -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGrad)" stroke="#DD0200" stroke-width="2" />
+
+  <!-- K Logo Nodes & Connections -->
+  <!-- Edges -->
+  <line x1="22" y1="16" x2="22" y2="32" stroke="#DD0200" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)" />
+  <line x1="22" y1="32" x2="22" y2="48" stroke="#DD0200" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)" />
+  <line x1="22" y1="32" x2="42" y2="16" stroke="#DD0200" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)" />
+  <line x1="22" y1="32" x2="42" y2="48" stroke="#DD0200" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)" />
+
+  <!-- Node Circles -->
+  <circle cx="22" cy="16" r="4.5" fill="#D9D9D9" filter="url(#glow)" />
+  <circle cx="22" cy="32" r="5" fill="#DD0200" filter="url(#glow)" />
+  <circle cx="22" cy="48" r="4.5" fill="#D9D9D9" filter="url(#glow)" />
+  <circle cx="42" cy="16" r="4.5" fill="#D9D9D9" filter="url(#glow)" />
+  <circle cx="42" cy="48" r="4.5" fill="#D9D9D9" filter="url(#glow)" />
+</svg>

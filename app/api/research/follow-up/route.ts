@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    if (process.env.NVIDIA_API_KEY) {
+    if (process.env.NVIDIA_API_KEY?.trim()) {
       try {
         const prompt = PROMPTS.followUp(query || 'Research', context || '', question);
         const answer = await complete(

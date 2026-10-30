@@ -21,20 +21,23 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
   // Fetch or generate script
   useEffect(() => {
     if (isOpen && !videoScript && !loading) {
-      setLoading(true);
-      fetch('/api/research/video', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query, report }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.videoScript) {
-            setVideoScript(data.videoScript);
-          }
+      const timer = setTimeout(() => {
+        setLoading(true);
+        fetch('/api/research/video', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, report }),
         })
-        .catch(() => {})
-        .finally(() => setLoading(false));
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.videoScript) {
+              setVideoScript(data.videoScript);
+            }
+          })
+          .catch(() => {})
+          .finally(() => setLoading(false));
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [isOpen, videoScript, query, report, loading, setVideoScript]);
 
@@ -95,9 +98,9 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
           style={{
             width: '100%',
             maxWidth: '820px',
-            backgroundColor: '#070A12',
-            border: '1px solid rgba(30, 107, 255, 0.3)',
-            boxShadow: '0 0 60px rgba(30, 107, 255, 0.25)',
+            backgroundColor: '#1A0706',
+            border: '1px solid rgba(221, 2, 0, 0.3)',
+            boxShadow: '0 0 60px rgba(85, 16, 13, 0.5)',
             borderRadius: '24px',
             overflow: 'hidden',
             display: 'flex',
@@ -108,7 +111,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
           <div
             style={{
               padding: '16px 24px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+              borderBottom: '1px solid rgba(85, 16, 13, 0.6)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -117,8 +120,8 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span
                 style={{
-                  background: 'rgba(30,107,255,0.2)',
-                  color: '#1E6BFF',
+                  background: 'rgba(221,2,0,0.2)',
+                  color: '#DD0200',
                   padding: '3px 8px',
                   borderRadius: '6px',
                   fontSize: '0.7rem',
@@ -129,7 +132,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
               >
                 AI Video Explainer
               </span>
-              <span style={{ fontSize: '0.85rem', color: '#FFFFFF', fontWeight: 600 }}>
+              <span style={{ fontSize: '0.85rem', color: '#D9D9D9', fontWeight: 600 }}>
                 {query}
               </span>
             </div>
@@ -139,7 +142,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: 'rgba(255,255,255,0.5)',
+                color: 'rgba(217,217,217,0.5)',
                 cursor: 'pointer',
                 display: 'flex',
               }}
@@ -154,7 +157,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
             style={{
               position: 'relative',
               aspectRatio: '16 / 9',
-              background: 'radial-gradient(ellipse at center, #0B162E 0%, #05070D 100%)',
+              background: 'radial-gradient(ellipse at center, #55100D 0%, #1A0706 100%)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -171,12 +174,12 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                   flexDirection: 'column',
                   alignItems: 'center',
                   gap: '14px',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: 'rgba(217,217,217,0.7)',
                 }}
               >
-                <Sparkles size={32} color="#1E6BFF" className="animate-spin-slow" />
+                <Sparkles size={32} color="#DD0200" className="animate-spin-slow" />
                 <p style={{ fontSize: '0.9rem', letterSpacing: '0.05em' }}>
-                  Synthesizing multi-scene documentary script with Gemma-4-31B…
+                  Synthesizing multi-scene documentary storyboard…
                 </p>
               </div>
             ) : currentScene ? (
@@ -192,7 +195,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                   <div
                     style={{
                       fontSize: '0.75rem',
-                      color: '#1E6BFF',
+                      color: '#DD0200',
                       textTransform: 'uppercase',
                       letterSpacing: '0.15em',
                       fontWeight: 600,
@@ -207,12 +210,12 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                       fontSize: '1.45rem',
                       fontWeight: 600,
                       lineHeight: 1.4,
-                      color: '#FFFFFF',
+                      color: '#D9D9D9',
                       fontFamily: "'Space Grotesk', sans-serif",
                       marginBottom: '20px',
                     }}
                   >
-                    "{currentScene.narration}"
+                    &ldquo;{currentScene.narration}&rdquo;
                   </h3>
 
                   <div
@@ -220,15 +223,15 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '8px',
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      background: 'rgba(85,16,13,0.4)',
+                      border: '1px solid rgba(221,2,0,0.2)',
                       borderRadius: '100px',
                       padding: '6px 16px',
                       fontSize: '0.75rem',
-                      color: 'rgba(255,255,255,0.5)',
+                      color: 'rgba(217,217,217,0.6)',
                     }}
                   >
-                    <Volume2 size={13} color="#1E6BFF" />
+                    <Volume2 size={13} color="#DD0200" />
                     Cue: {currentScene.onScreenCue}
                   </div>
                 </motion.div>
@@ -243,14 +246,14 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                 left: 0,
                 right: 0,
                 height: '3px',
-                background: 'rgba(255,255,255,0.1)',
+                background: 'rgba(217,217,217,0.1)',
               }}
             >
               <div
                 style={{
                   height: '100%',
                   width: `${progress}%`,
-                  background: '#1E6BFF',
+                  background: '#DD0200',
                   transition: 'width 0.1s linear',
                 }}
               />
@@ -261,7 +264,7 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
           <div
             style={{
               padding: '16px 24px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+              borderTop: '1px solid rgba(85, 16, 13, 0.6)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -282,10 +285,10 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
                     borderRadius: '3px',
                     background:
                       idx === currentSceneIdx
-                        ? '#1E6BFF'
+                        ? '#DD0200'
                         : idx < currentSceneIdx
-                        ? 'rgba(30,107,255,0.4)'
-                        : 'rgba(255,255,255,0.15)',
+                        ? 'rgba(221,2,0,0.4)'
+                        : 'rgba(217,217,217,0.15)',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.2s',
@@ -313,17 +316,17 @@ export function VideoPlayerModal({ isOpen, onClose }: Props) {
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 style={{
-                  background: '#1E6BFF',
+                  background: 'linear-gradient(135deg, #DD0200, #55100D)',
                   border: 'none',
                   borderRadius: '50%',
                   width: '40px',
                   height: '40px',
-                  color: '#FFFFFF',
+                  color: '#D9D9D9',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 0 15px rgba(30,107,255,0.5)',
+                  boxShadow: '0 0 15px rgba(221,2,0,0.5)',
                 }}
               >
                 {isPlaying ? <Pause size={18} /> : <Play size={18} style={{ marginLeft: 2 }} />}

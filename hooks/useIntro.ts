@@ -10,21 +10,28 @@ export function useIntro() {
   const [hasSeenIntro, setHasSeenIntro] = useState<boolean | null>(null);
 
   useEffect(() => {
-    try {
-      const seen = typeof window !== 'undefined' && sessionStorage.getItem(INTRO_KEY) === 'true';
-      setHasSeenIntro(seen);
-      if (seen) {
+    const timer = setTimeout(() => {
+      try {
+        const seen =
+          typeof window !== 'undefined' &&
+          (localStorage.getItem(INTRO_KEY) === 'true' ||
+            sessionStorage.getItem(INTRO_KEY) === 'true');
+        setHasSeenIntro(seen);
+        if (seen) {
+          setPhase('landing');
+        }
+      } catch {
+        setHasSeenIntro(true);
         setPhase('landing');
       }
-    } catch {
-      setHasSeenIntro(true);
-      setPhase('landing');
-    }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [setPhase]);
 
   const completeIntro = useCallback(() => {
     try {
       if (typeof window !== 'undefined') {
+        localStorage.setItem(INTRO_KEY, 'true');
         sessionStorage.setItem(INTRO_KEY, 'true');
       }
     } catch {

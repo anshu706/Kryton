@@ -24,17 +24,17 @@ export function SourceCardView({ card, isFloating }: Props) {
       onClick={() => setHighlightedCardId(isHighlighted ? null : card.id)}
       style={{
         background: isHighlighted
-          ? 'linear-gradient(135deg, rgba(30,107,255,0.2), rgba(30,107,255,0.08))'
-          : 'rgba(255, 255, 255, 0.05)',
+          ? 'linear-gradient(135deg, rgba(221,2,0,0.25), rgba(85,16,13,0.5))'
+          : 'rgba(85,16,13,0.3)',
         border: isHighlighted
-          ? '1px solid #1E6BFF'
-          : '1px solid rgba(255, 255, 255, 0.1)',
+          ? '1px solid #DD0200'
+          : '1px solid rgba(85,16,13,0.7)',
         boxShadow: isHighlighted
-          ? '0 0 25px rgba(30,107,255,0.5)'
-          : '0 4px 20px rgba(0, 0, 0, 0.3)',
+          ? '0 0 25px rgba(221,2,0,0.5)'
+          : '0 4px 20px rgba(0, 0, 0, 0.4)',
         borderRadius: '16px',
         padding: '16px',
-        color: '#FFFFFF',
+        color: '#D9D9D9',
         width: isFloating ? '320px' : '100%',
         backdropFilter: 'blur(16px)',
         cursor: 'pointer',
@@ -64,7 +64,7 @@ export function SourceCardView({ card, isFloating }: Props) {
           <span
             style={{
               fontSize: '0.75rem',
-              color: 'rgba(255,255,255,0.5)',
+              color: 'rgba(217,217,217,0.5)',
               fontFamily: "'Inter', sans-serif",
             }}
           >
@@ -75,13 +75,13 @@ export function SourceCardView({ card, isFloating }: Props) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span
             style={{
-              background: 'rgba(30,107,255,0.2)',
-              border: '1px solid rgba(30,107,255,0.4)',
+              background: 'rgba(221,2,0,0.2)',
+              border: '1px solid rgba(221,2,0,0.4)',
               borderRadius: '6px',
               padding: '2px 6px',
               fontSize: '0.7rem',
               fontWeight: 600,
-              color: '#1E6BFF',
+              color: '#DD0200',
             }}
           >
             [{card.citationIndex}]
@@ -92,7 +92,7 @@ export function SourceCardView({ card, isFloating }: Props) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             style={{
-              color: 'rgba(255,255,255,0.4)',
+              color: 'rgba(217,217,217,0.4)',
               display: 'flex',
               alignItems: 'center',
             }}
@@ -110,7 +110,7 @@ export function SourceCardView({ card, isFloating }: Props) {
           fontWeight: 600,
           lineHeight: 1.35,
           marginBottom: '8px',
-          color: '#FFFFFF',
+          color: '#D9D9D9',
           fontFamily: "'Space Grotesk', sans-serif",
         }}
       >
@@ -121,7 +121,7 @@ export function SourceCardView({ card, isFloating }: Props) {
       <p
         style={{
           fontSize: '0.78rem',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(217,217,217,0.7)',
           lineHeight: 1.45,
           fontFamily: "'Inter', sans-serif",
           display: '-webkit-box',
@@ -141,7 +141,7 @@ export function SourceCardView({ card, isFloating }: Props) {
           justifyContent: 'space-between',
           marginTop: '12px',
           paddingTop: '10px',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid rgba(217,217,217,0.08)',
           fontSize: '0.72rem',
         }}
       >
@@ -150,13 +150,13 @@ export function SourceCardView({ card, isFloating }: Props) {
             display: 'flex',
             alignItems: 'center',
             gap: '4px',
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(217,217,217,0.5)',
           }}
         >
-          <ShieldCheck size={13} color="#1E6BFF" />
+          <ShieldCheck size={13} color="#DD0200" />
           Reliability
         </span>
-        <span style={{ fontWeight: 600, color: '#1E6BFF' }}>
+        <span style={{ fontWeight: 600, color: '#DD0200' }}>
           {Math.round(card.reliability * 100)}% verified
         </span>
       </div>

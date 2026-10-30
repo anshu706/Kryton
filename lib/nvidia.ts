@@ -28,7 +28,7 @@ export async function complete(
     topP?: number;
   } = {}
 ): Promise<string> {
-  const apiKey = process.env.NVIDIA_API_KEY;
+  const apiKey = process.env.NVIDIA_API_KEY?.trim();
   if (!apiKey) throw new Error('NVIDIA_API_KEY is not set');
 
   const res = await fetch(NVIDIA_API_URL, {
@@ -38,6 +38,7 @@ export async function complete(
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
+    signal: AbortSignal.timeout(8000),
     body: JSON.stringify({
       model: MODEL,
       max_tokens: opts.maxTokens ?? 2048,
@@ -65,7 +66,7 @@ export async function* stream(
   messages: Message[],
   opts: { temperature?: number; maxTokens?: number } = {}
 ): AsyncGenerator<string> {
-  const apiKey = process.env.NVIDIA_API_KEY;
+  const apiKey = process.env.NVIDIA_API_KEY?.trim();
   if (!apiKey) throw new Error('NVIDIA_API_KEY is not set');
 
   const res = await fetch(NVIDIA_API_URL, {
@@ -75,6 +76,7 @@ export async function* stream(
       'Content-Type': 'application/json',
       Accept: 'text/event-stream',
     },
+    signal: AbortSignal.timeout(10000),
     body: JSON.stringify({
       model: MODEL,
       max_tokens: opts.maxTokens ?? 4096,

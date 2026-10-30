@@ -30,15 +30,15 @@ const WorkspaceLayout = dynamic(
           justifyContent: 'center',
           flexDirection: 'column',
           gap: '16px',
-          backgroundColor: '#05070D',
+          backgroundColor: '#1A0706',
         }}
       >
         <div
           style={{
             width: '44px',
             height: '44px',
-            border: '2px solid rgba(30,107,255,0.25)',
-            borderTop: '2px solid #1E6BFF',
+            border: '2px solid rgba(221,2,0,0.25)',
+            borderTop: '2px solid #DD0200',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite',
           }}
@@ -46,7 +46,7 @@ const WorkspaceLayout = dynamic(
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         <p
           style={{
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(217,217,217,0.5)',
             fontFamily: "'Inter', sans-serif",
             fontSize: '0.85rem',
             letterSpacing: '0.08em',
@@ -63,7 +63,7 @@ export default function Page() {
   const phase = useResearchStore((s) => s.phase);
 
   return (
-    <main style={{ backgroundColor: '#05070D', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: '#1A0706', minHeight: '100vh' }}>
       {/* Intro Overlay — client only, lazy loaded */}
       <IntroOverlay />
 

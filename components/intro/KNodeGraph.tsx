@@ -121,8 +121,6 @@ export function KNodeGraph({ onComplete }: Props) {
     return () => cancelAnimationFrame(rafRef.current);
   }, [onComplete]);
 
-  const nodes = K_NODES.map((n) => toCanvas(n.x, n.y));
-
   return (
     <div
       style={{
@@ -155,8 +153,8 @@ export function KNodeGraph({ onComplete }: Props) {
             </feMerge>
           </filter>
           <radialGradient id="halo-grad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#1E6BFF" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#1E6BFF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#DD0200" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#DD0200" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -169,7 +167,7 @@ export function KNodeGraph({ onComplete }: Props) {
             y1={CENTER}
             x2={CENTER}
             y2={CENTER}
-            stroke="#1E6BFF"
+            stroke="#DD0200"
             strokeWidth="2"
             strokeLinecap="round"
             opacity="0"
@@ -178,7 +176,7 @@ export function KNodeGraph({ onComplete }: Props) {
         ))}
 
         {/* Halo circles */}
-        {K_NODES.map((node, i) => (
+        {K_NODES.map((node) => (
           <circle
             key={`halo-${i}`}
             data-halo={node.id}
@@ -191,14 +189,14 @@ export function KNodeGraph({ onComplete }: Props) {
         ))}
 
         {/* Nodes */}
-        {K_NODES.map((node, i) => (
+        {K_NODES.map((node) => (
           <circle
             key={node.id}
             data-node={node.id}
             cx={CENTER}
             cy={CENTER}
             r={NODE_R}
-            fill="#FFFFFF"
+            fill="#D9D9D9"
             opacity="0"
             filter="url(#node-glow)"
           />
@@ -217,7 +215,7 @@ export function KNodeGraph({ onComplete }: Props) {
           style={{
             fontSize: '2.5rem',
             letterSpacing: '0.18em',
-            background: 'linear-gradient(135deg, #FFFFFF 30%, #1E6BFF 100%)',
+            background: 'linear-gradient(135deg, #D9D9D9 30%, #DD0200 100%)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -231,7 +229,7 @@ export function KNodeGraph({ onComplete }: Props) {
           animate={{ opacity: 1 }}
           transition={{ delay: 3.2, duration: 0.5 }}
           style={{
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(217,217,217,0.5)',
             fontSize: '0.85rem',
             letterSpacing: '0.25em',
             fontFamily: "'Inter', sans-serif",

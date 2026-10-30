@@ -104,7 +104,7 @@ export function ParticleCanvas({ className = '' }: Props) {
         // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(30,107,255,${p.alpha})`;
+        ctx.fillStyle = `rgba(221,2,0,${p.alpha})`;
         ctx.fill();
       });
 
@@ -119,7 +119,7 @@ export function ParticleCanvas({ className = '' }: Props) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(30,107,255,${opacity})`;
+            ctx.strokeStyle = `rgba(221,2,0,${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

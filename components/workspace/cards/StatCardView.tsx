@@ -21,17 +21,17 @@ export function StatCardView({ card, isFloating }: Props) {
       onClick={() => setHighlightedCardId(isHighlighted ? null : card.id)}
       style={{
         background: isHighlighted
-          ? 'linear-gradient(135deg, rgba(30,107,255,0.25), rgba(5,7,13,0.8))'
-          : 'linear-gradient(135deg, rgba(30,107,255,0.1), rgba(255,255,255,0.03))',
+          ? 'linear-gradient(135deg, rgba(221,2,0,0.3), rgba(85,16,13,0.7))'
+          : 'linear-gradient(135deg, rgba(85,16,13,0.5), rgba(26,7,6,0.6))',
         border: isHighlighted
-          ? '1px solid #1E6BFF'
-          : '1px solid rgba(30,107,255,0.3)',
+          ? '1px solid #DD0200'
+          : '1px solid rgba(85,16,13,0.8)',
         boxShadow: isHighlighted
-          ? '0 0 30px rgba(30,107,255,0.5)'
+          ? '0 0 30px rgba(221,2,0,0.5)'
           : '0 4px 20px rgba(0, 0, 0, 0.4)',
         borderRadius: '16px',
         padding: '18px',
-        color: '#FFFFFF',
+        color: '#D9D9D9',
         width: isFloating ? '260px' : '100%',
         backdropFilter: 'blur(16px)',
         cursor: 'pointer',
@@ -49,7 +49,7 @@ export function StatCardView({ card, isFloating }: Props) {
         <span
           style={{
             fontSize: '0.7rem',
-            color: 'rgba(30,107,255,0.9)',
+            color: '#DD0200',
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
             fontWeight: 600,
@@ -57,7 +57,7 @@ export function StatCardView({ card, isFloating }: Props) {
         >
           Key Metric
         </span>
-        <TrendingUp size={15} color="#1E6BFF" />
+        <TrendingUp size={15} color="#DD0200" />
       </div>
 
       <div
@@ -75,7 +75,7 @@ export function StatCardView({ card, isFloating }: Props) {
           style={{
             fontSize: '2.4rem',
             fontWeight: 700,
-            color: '#FFFFFF',
+            color: '#D9D9D9',
             fontFamily: "'Space Grotesk', sans-serif",
             lineHeight: 1,
           }}
@@ -86,7 +86,7 @@ export function StatCardView({ card, isFloating }: Props) {
           style={{
             fontSize: '1.2rem',
             fontWeight: 700,
-            color: '#1E6BFF',
+            color: '#DD0200',
             fontFamily: "'Space Grotesk', sans-serif",
           }}
         >
@@ -97,7 +97,7 @@ export function StatCardView({ card, isFloating }: Props) {
       <p
         style={{
           fontSize: '0.8rem',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(217,217,217,0.7)',
           lineHeight: 1.4,
           fontFamily: "'Inter', sans-serif",
         }}

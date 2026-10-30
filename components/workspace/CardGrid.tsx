@@ -17,26 +17,21 @@ export function CardGrid() {
 
   const tabs: { id: FilterTab; label: string }[] = [
     { id: 'all', label: `All (${cards.length})` },
-    {
-      id: 'source',
-      label: `Sources (${cards.filter((c) => c.type === 'source').length})`,
-    },
-    {
-      id: 'academic',
-      label: `Papers (${cards.filter((c) => c.type === 'academic').length})`,
-    },
-    {
-      id: 'stat',
-      label: `Stats (${cards.filter((c) => c.type === 'stat').length})`,
-    },
-    {
-      id: 'fact',
-      label: `Insights (${cards.filter((c) => c.type === 'fact').length})`,
-    },
-    {
-      id: 'related',
-      label: `Branches (${cards.filter((c) => c.type === 'related').length})`,
-    },
+    ...(cards.some((c) => c.type === 'wikipedia')
+      ? [{ id: 'wikipedia' as FilterTab, label: `Wikipedia (${cards.filter((c) => c.type === 'wikipedia').length})` }]
+      : []),
+    ...(cards.some((c) => c.type === 'newspaper')
+      ? [{ id: 'newspaper' as FilterTab, label: `Newspapers (${cards.filter((c) => c.type === 'newspaper').length})` }]
+      : []),
+    ...(cards.some((c) => c.type === 'letter')
+      ? [{ id: 'letter' as FilterTab, label: `Letters & Dispatches (${cards.filter((c) => c.type === 'letter').length})` }]
+      : []),
+    ...(cards.some((c) => c.type === 'source')
+      ? [{ id: 'source' as FilterTab, label: `Sources (${cards.filter((c) => c.type === 'source').length})` }]
+      : []),
+    ...(cards.some((c) => c.type === 'academic')
+      ? [{ id: 'academic' as FilterTab, label: `Papers (${cards.filter((c) => c.type === 'academic').length})` }]
+      : []),
   ];
 
   return (
@@ -46,7 +41,7 @@ export function CardGrid() {
         height: '100%',
         overflowY: 'auto',
         padding: '32px',
-        background: '#05070D',
+        background: '#1A0706',
       }}
     >
       {/* Category Filter Pills */}
@@ -65,13 +60,13 @@ export function CardGrid() {
             style={{
               background:
                 activeTab === tab.id
-                  ? 'rgba(30,107,255,0.2)'
-                  : 'rgba(255,255,255,0.04)',
+                  ? 'rgba(221,2,0,0.2)'
+                  : 'rgba(85,16,13,0.3)',
               border:
                 activeTab === tab.id
-                  ? '1px solid #1E6BFF'
-                  : '1px solid rgba(255,255,255,0.08)',
-              color: activeTab === tab.id ? '#1E6BFF' : 'rgba(255,255,255,0.6)',
+                  ? '1px solid #DD0200'
+                  : '1px solid rgba(85,16,13,0.6)',
+              color: activeTab === tab.id ? '#DD0200' : 'rgba(217,217,217,0.6)',
               borderRadius: '100px',
               padding: '6px 14px',
               fontSize: '0.78rem',

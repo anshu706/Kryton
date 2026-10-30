@@ -24,11 +24,11 @@ export function RelatedCardView({ card, isFloating }: Props) {
       layout
       whileHover={{ scale: 1.02, y: -2 }}
       style={{
-        background: 'rgba(255, 255, 255, 0.04)',
-        border: '1px dashed rgba(30, 107, 255, 0.4)',
+        background: 'rgba(85, 16, 13, 0.3)',
+        border: '1px dashed rgba(221, 2, 0, 0.5)',
         borderRadius: '16px',
         padding: '16px',
-        color: '#FFFFFF',
+        color: '#D9D9D9',
         width: isFloating ? '290px' : '100%',
         backdropFilter: 'blur(16px)',
         transition: 'all 0.2s ease',
@@ -40,7 +40,7 @@ export function RelatedCardView({ card, isFloating }: Props) {
           alignItems: 'center',
           gap: '6px',
           fontSize: '0.7rem',
-          color: 'rgba(30,107,255,0.9)',
+          color: '#DD0200',
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
           fontWeight: 600,
@@ -55,7 +55,7 @@ export function RelatedCardView({ card, isFloating }: Props) {
         style={{
           fontSize: '0.88rem',
           fontWeight: 600,
-          color: '#FFFFFF',
+          color: '#D9D9D9',
           marginBottom: '6px',
           fontFamily: "'Space Grotesk', sans-serif",
         }}
@@ -66,7 +66,7 @@ export function RelatedCardView({ card, isFloating }: Props) {
       <p
         style={{
           fontSize: '0.76rem',
-          color: 'rgba(255,255,255,0.5)',
+          color: 'rgba(217,217,217,0.6)',
           marginBottom: '12px',
           lineHeight: 1.4,
         }}
@@ -82,11 +82,11 @@ export function RelatedCardView({ card, isFloating }: Props) {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '6px',
-          background: 'rgba(30,107,255,0.15)',
-          border: '1px solid rgba(30,107,255,0.3)',
+          background: 'rgba(221,2,0,0.18)',
+          border: '1px solid rgba(221,2,0,0.4)',
           borderRadius: '8px',
           padding: '6px 12px',
-          color: '#1E6BFF',
+          color: '#DD0200',
           fontSize: '0.75rem',
           fontWeight: 600,
           cursor: 'pointer',

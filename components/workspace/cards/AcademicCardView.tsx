@@ -21,17 +21,17 @@ export function AcademicCardView({ card, isFloating }: Props) {
       onClick={() => setHighlightedCardId(isHighlighted ? null : card.id)}
       style={{
         background: isHighlighted
-          ? 'linear-gradient(135deg, rgba(30,107,255,0.22), rgba(20,50,120,0.2))'
-          : 'rgba(255, 255, 255, 0.05)',
+          ? 'linear-gradient(135deg, rgba(221,2,0,0.25), rgba(85,16,13,0.5))'
+          : 'rgba(85,16,13,0.35)',
         border: isHighlighted
-          ? '1px solid #1E6BFF'
-          : '1px solid rgba(30, 107, 255, 0.25)',
+          ? '1px solid #DD0200'
+          : '1px solid rgba(85,16,13,0.75)',
         boxShadow: isHighlighted
-          ? '0 0 25px rgba(30,107,255,0.5)'
-          : '0 4px 20px rgba(0, 0, 0, 0.3)',
+          ? '0 0 25px rgba(221,2,0,0.5)'
+          : '0 4px 20px rgba(0, 0, 0, 0.4)',
         borderRadius: '16px',
         padding: '16px',
-        color: '#FFFFFF',
+        color: '#D9D9D9',
         width: isFloating ? '340px' : '100%',
         backdropFilter: 'blur(16px)',
         cursor: 'pointer',
@@ -52,8 +52,8 @@ export function AcademicCardView({ card, isFloating }: Props) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '5px',
-            background: 'rgba(30,107,255,0.15)',
-            color: '#1E6BFF',
+            background: 'rgba(221,2,0,0.15)',
+            color: '#DD0200',
             padding: '2px 8px',
             borderRadius: '6px',
             fontSize: '0.7rem',
@@ -91,7 +91,7 @@ export function AcademicCardView({ card, isFloating }: Props) {
           fontWeight: 600,
           lineHeight: 1.35,
           marginBottom: '6px',
-          color: '#FFFFFF',
+          color: '#D9D9D9',
           fontFamily: "'Space Grotesk', sans-serif",
         }}
       >
@@ -102,7 +102,7 @@ export function AcademicCardView({ card, isFloating }: Props) {
       <div
         style={{
           fontSize: '0.75rem',
-          color: 'rgba(255,255,255,0.45)',
+          color: 'rgba(217,217,217,0.5)',
           marginBottom: '8px',
           fontStyle: 'italic',
         }}
@@ -115,7 +115,7 @@ export function AcademicCardView({ card, isFloating }: Props) {
       <p
         style={{
           fontSize: '0.78rem',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(217,217,217,0.7)',
           lineHeight: 1.45,
           fontFamily: "'Inter', sans-serif",
           display: '-webkit-box',
@@ -133,9 +133,9 @@ export function AcademicCardView({ card, isFloating }: Props) {
           style={{
             marginTop: '10px',
             paddingTop: '8px',
-            borderTop: '1px solid rgba(255,255,255,0.06)',
+            borderTop: '1px solid rgba(217,217,217,0.08)',
             fontSize: '0.68rem',
-            color: 'rgba(30,107,255,0.8)',
+            color: 'rgba(221,2,0,0.85)',
             fontFamily: 'monospace',
             overflow: 'hidden',
             textOverflow: 'ellipsis',

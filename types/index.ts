@@ -9,8 +9,12 @@ export type SearchMode = 'web' | 'academic' | 'both';
 // ── Info Card Union ──────────────────────────────────────────
 
 export type CardType =
+  | 'wikipedia'
+  | 'newspaper'
+  | 'letter'
   | 'source'
   | 'image'
+  | 'video'
   | 'academic'
   | 'fact'
   | 'stat'
@@ -23,6 +27,41 @@ export interface BaseCard {
   x: number;
   y: number;
   isExpanded?: boolean;
+}
+
+export interface WikipediaCard extends BaseCard {
+  type: 'wikipedia';
+  title: string;
+  extract: string;
+  url: string;
+  description?: string;
+  thumbnailUrl?: string;
+  quickFacts?: { label: string; value: string }[];
+}
+
+export interface NewspaperCard extends BaseCard {
+  type: 'newspaper';
+  publication: string;
+  headline: string;
+  date: string;
+  edition?: string;
+  snippet: string;
+  url: string;
+  columnist?: string;
+  citationIndex?: number;
+}
+
+export interface LetterCard extends BaseCard {
+  type: 'letter';
+  sender: string;
+  recipient: string;
+  date: string;
+  subject: string;
+  classification?: string;
+  content: string;
+  archiveRef?: string;
+  url: string;
+  citationIndex?: number;
 }
 
 export interface SourceCard extends BaseCard {
@@ -40,6 +79,18 @@ export interface ImageCard extends BaseCard {
   src: string;
   caption: string;
   sourceUrl: string;
+  credit?: string;
+}
+
+export interface VideoCard extends BaseCard {
+  type: 'video';
+  title: string;
+  channel: string;
+  thumbnailUrl: string;
+  videoUrl: string;
+  duration?: string;
+  description?: string;
+  publishedAt?: string;
 }
 
 export interface AcademicCard extends BaseCard {
@@ -74,8 +125,12 @@ export interface RelatedQueryCard extends BaseCard {
 }
 
 export type InfoCard =
+  | WikipediaCard
+  | NewspaperCard
+  | LetterCard
   | SourceCard
   | ImageCard
+  | VideoCard
   | AcademicCard
   | FactCard
   | StatCard

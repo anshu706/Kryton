@@ -19,7 +19,7 @@ const inter = Inter({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#05070D',
+  themeColor: '#1A0706',
 };
 
 export const metadata: Metadata = {
@@ -39,6 +39,11 @@ export const metadata: Metadata = {
     title: 'Kryton — Research, illuminated.',
     description: 'AI-powered deep research platform.',
   },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   robots: { index: true, follow: true },
 };
 
@@ -52,34 +57,13 @@ export default function RootLayout({
       lang="en"
       className={`dark ${spaceGrotesk.variable} ${inter.variable}`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                  for (var reg of registrations) {
-                    reg.unregister();
-                  }
-                });
-                if ('caches' in window) {
-                  caches.keys().then(function(names) {
-                    for (var name of names) {
-                      caches.delete(name);
-                    }
-                  });
-                }
-              }
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body
         style={{
-          backgroundColor: '#05070D',
+          backgroundColor: '#1A0706',
           fontFamily: "var(--font-body), system-ui, sans-serif",
           minHeight: '100vh',
-          color: '#FFFFFF',
+          color: '#D9D9D9',
         }}
       >
         {children}

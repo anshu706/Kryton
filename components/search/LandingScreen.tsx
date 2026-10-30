@@ -21,13 +21,13 @@ export function LandingScreen() {
       {/* Particle background */}
       <ParticleCanvas />
 
-      {/* Radial blue glow from center */}
+      {/* Radial glow from center */}
       <div
         style={{
           position: 'fixed',
           inset: 0,
           background:
-            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(30,107,255,0.08) 0%, transparent 70%)',
+            'radial-gradient(ellipse 65% 55% at 50% 50%, rgba(221,2,0,0.12) 0%, rgba(85,16,13,0.2) 45%, transparent 75%)',
           pointerEvents: 'none',
           zIndex: 1,
         }}
@@ -67,7 +67,7 @@ export function LandingScreen() {
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
               letterSpacing: '0.15em',
               background:
-                'linear-gradient(135deg, #FFFFFF 30%, #1E6BFF 100%)',
+                'linear-gradient(135deg, #D9D9D9 30%, #DD0200 100%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -82,7 +82,7 @@ export function LandingScreen() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             style={{
-              color: 'rgba(255,255,255,0.35)',
+              color: 'rgba(217,217,217,0.5)',
               fontSize: '0.9rem',
               letterSpacing: '0.25em',
               fontFamily: "'Inter', sans-serif",
@@ -133,8 +133,8 @@ function KLogo() {
           </feMerge>
         </filter>
         <radialGradient id="node-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="100%" stopColor="rgba(255,255,255,0.6)" />
+          <stop offset="0%" stopColor="#D9D9D9" />
+          <stop offset="100%" stopColor="rgba(217,217,217,0.6)" />
         </radialGradient>
       </defs>
 
@@ -145,7 +145,7 @@ function KLogo() {
           y1={nodes[a].y}
           x2={nodes[b].x}
           y2={nodes[b].y}
-          stroke="#1E6BFF"
+          stroke="#DD0200"
           strokeWidth="1.5"
           strokeLinecap="round"
           filter="url(#logo-glow)"

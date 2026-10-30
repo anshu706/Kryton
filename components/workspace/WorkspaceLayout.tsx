@@ -155,8 +155,8 @@ export function WorkspaceLayout() {
         flexDirection: 'column',
         height: '100vh',
         width: '100vw',
-        backgroundColor: '#05070D',
-        color: '#FFFFFF',
+        backgroundColor: '#1A0706',
+        color: '#D9D9D9',
         overflow: 'hidden',
       }}
     >
@@ -164,8 +164,8 @@ export function WorkspaceLayout() {
       <header
         style={{
           height: '64px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          backgroundColor: 'rgba(5, 7, 13, 0.85)',
+          borderBottom: '1px solid rgba(85, 16, 13, 0.6)',
+          backgroundColor: 'rgba(26, 7, 6, 0.92)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           display: 'flex',
@@ -187,7 +187,7 @@ export function WorkspaceLayout() {
               background: 'transparent',
               border: 'none',
               cursor: 'pointer',
-              color: '#FFFFFF',
+              color: '#D9D9D9',
             }}
           >
             <div
@@ -195,14 +195,15 @@ export function WorkspaceLayout() {
                 width: '28px',
                 height: '28px',
                 borderRadius: '8px',
-                background: 'linear-gradient(135deg, #1E6BFF, #0047CC)',
+                background: 'linear-gradient(135deg, #DD0200, #55100D)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 700,
                 fontSize: '14px',
                 fontFamily: "'Space Grotesk', sans-serif",
-                boxShadow: '0 0 12px rgba(30,107,255,0.5)',
+                boxShadow: '0 0 12px rgba(221,2,0,0.5)',
+                color: '#D9D9D9',
               }}
             >
               K
@@ -212,7 +213,7 @@ export function WorkspaceLayout() {
               style={{
                 fontSize: '1.05rem',
                 letterSpacing: '0.12em',
-                background: 'linear-gradient(135deg, #FFFFFF 40%, #1E6BFF 100%)',
+                background: 'linear-gradient(135deg, #D9D9D9 40%, #DD0200 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -226,7 +227,7 @@ export function WorkspaceLayout() {
             style={{
               width: '1px',
               height: '20px',
-              background: 'rgba(255,255,255,0.1)',
+              background: 'rgba(217,217,217,0.1)',
             }}
           />
 
@@ -236,18 +237,18 @@ export function WorkspaceLayout() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(85,16,13,0.3)',
+              border: '1px solid rgba(221,2,0,0.2)',
               borderRadius: '100px',
               padding: '6px 14px',
               maxWidth: '380px',
             }}
           >
-            <Search size={13} color="#1E6BFF" />
+            <Search size={13} color="#DD0200" />
             <span
               style={{
                 fontSize: '0.82rem',
-                color: '#FFFFFF',
+                color: '#D9D9D9',
                 fontWeight: 500,
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
@@ -260,8 +261,8 @@ export function WorkspaceLayout() {
             <span
               style={{
                 fontSize: '0.68rem',
-                color: 'rgba(30,107,255,0.9)',
-                background: 'rgba(30,107,255,0.15)',
+                color: 'rgba(221,2,0,0.9)',
+                background: 'rgba(221,2,0,0.15)',
                 padding: '2px 6px',
                 borderRadius: '4px',
                 fontWeight: 600,
@@ -283,12 +284,12 @@ export function WorkspaceLayout() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(30,107,255,0.1)',
-                border: '1px solid rgba(30,107,255,0.3)',
+                background: 'rgba(221,2,0,0.1)',
+                border: '1px solid rgba(221,2,0,0.3)',
                 borderRadius: '100px',
                 padding: '6px 14px',
                 fontSize: '0.78rem',
-                color: '#1E6BFF',
+                color: '#DD0200',
               }}
             >
               <div
@@ -296,15 +297,15 @@ export function WorkspaceLayout() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  backgroundColor: '#1E6BFF',
-                  boxShadow: '0 0 10px #1E6BFF',
+                  backgroundColor: '#DD0200',
+                  boxShadow: '0 0 10px #DD0200',
                 }}
                 className="animate-pulse-glow"
               />
               <span style={{ fontWeight: 500 }}>
                 {streamStatus || 'Illuminating research…'}
               </span>
-              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem' }}>
+              <span style={{ color: 'rgba(217,217,217,0.5)', fontSize: '0.7rem' }}>
                 ({streamStep}/{streamTotal})
               </span>
             </motion.div>
@@ -315,10 +316,10 @@ export function WorkspaceLayout() {
                 alignItems: 'center',
                 gap: '6px',
                 fontSize: '0.75rem',
-                color: 'rgba(255,255,255,0.4)',
+                color: 'rgba(217,217,217,0.5)',
               }}
             >
-              <Sparkles size={13} color="#1E6BFF" />
+              <Sparkles size={13} color="#DD0200" />
               <span>{cards.length} nodes synthesized</span>
             </div>
           )}
@@ -330,8 +331,8 @@ export function WorkspaceLayout() {
           <div
             style={{
               display: 'flex',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(85,16,13,0.3)',
+              border: '1px solid rgba(217,217,217,0.1)',
               borderRadius: '8px',
               padding: '2px',
             }}
@@ -344,12 +345,12 @@ export function WorkspaceLayout() {
                 ...toggleBtnStyle,
                 background:
                   cardDisplayMode === 'float'
-                    ? 'rgba(30,107,255,0.2)'
+                    ? 'rgba(221,2,0,0.2)'
                     : 'transparent',
                 color:
                   cardDisplayMode === 'float'
-                    ? '#1E6BFF'
-                    : 'rgba(255,255,255,0.5)',
+                    ? '#DD0200'
+                    : 'rgba(217,217,217,0.6)',
               }}
               title="Floating Node Canvas"
             >
@@ -365,12 +366,12 @@ export function WorkspaceLayout() {
                 ...toggleBtnStyle,
                 background:
                   cardDisplayMode === 'grid'
-                    ? 'rgba(30,107,255,0.2)'
+                    ? 'rgba(221,2,0,0.2)'
                     : 'transparent',
                 color:
                   cardDisplayMode === 'grid'
-                    ? '#1E6BFF'
-                    : 'rgba(255,255,255,0.5)',
+                    ? '#DD0200'
+                    : 'rgba(217,217,217,0.6)',
               }}
               title="Category Grid View"
             >
@@ -389,16 +390,16 @@ export function WorkspaceLayout() {
               alignItems: 'center',
               gap: '6px',
               background: isDrawerOpen
-                ? 'rgba(30,107,255,0.25)'
-                : 'linear-gradient(135deg, #1E6BFF, #0047CC)',
-              border: isDrawerOpen ? '1px solid #1E6BFF' : 'none',
+                ? 'rgba(221,2,0,0.25)'
+                : 'linear-gradient(135deg, #DD0200, #55100D)',
+              border: isDrawerOpen ? '1px solid #DD0200' : 'none',
               borderRadius: '8px',
               padding: '8px 14px',
-              color: '#FFFFFF',
+              color: '#D9D9D9',
               fontSize: '0.8rem',
               fontWeight: 600,
               cursor: 'pointer',
-              boxShadow: isDrawerOpen ? 'none' : '0 0 15px rgba(30,107,255,0.4)',
+              boxShadow: isDrawerOpen ? 'none' : '0 0 15px rgba(221,2,0,0.4)',
               transition: 'all 0.2s',
             }}
           >

@@ -123,8 +123,8 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
             right: 0,
             bottom: 0,
             width: 'min(640px, 92vw)',
-            backgroundColor: '#070A12',
-            borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
+            backgroundColor: '#1A0706',
+            borderLeft: '1px solid rgba(85, 16, 13, 0.8)',
             boxShadow: '-10px 0 40px rgba(0, 0, 0, 0.7)',
             zIndex: 40,
             display: 'flex',
@@ -135,7 +135,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
           <div
             style={{
               padding: '16px 20px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+              borderBottom: '1px solid rgba(85, 16, 13, 0.6)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -169,11 +169,11 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  background: 'linear-gradient(135deg, #1E6BFF, #0047CC)',
+                  background: 'linear-gradient(135deg, #DD0200, #55100D)',
                   border: 'none',
                   borderRadius: '8px',
                   padding: '6px 12px',
-                  color: '#FFFFFF',
+                  color: '#D9D9D9',
                   fontSize: '0.75rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -189,7 +189,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                 style={{
                   background: 'transparent',
                   border: 'none',
-                  color: 'rgba(255,255,255,0.5)',
+                  color: 'rgba(217,217,217,0.5)',
                   cursor: 'pointer',
                   padding: '4px',
                   display: 'flex',
@@ -241,7 +241,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedReport ? <Check size={12} color="#1E6BFF" /> : <Copy size={12} />}
+                    {copiedReport ? <Check size={12} color="#DD0200" /> : <Copy size={12} />}
                     {copiedReport ? 'Copied' : 'Copy Markdown'}
                   </button>
                 </div>
@@ -324,16 +324,16 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                         style={{
                           background:
                             citationFormat === fmt
-                              ? 'rgba(30,107,255,0.2)'
+                              ? 'rgba(221,2,0,0.2)'
                               : 'transparent',
                           border:
                             citationFormat === fmt
-                              ? '1px solid #1E6BFF'
-                              : '1px solid rgba(255,255,255,0.1)',
+                              ? '1px solid #DD0200'
+                              : '1px solid rgba(217,217,217,0.12)',
                           color:
                             citationFormat === fmt
-                              ? '#1E6BFF'
-                              : 'rgba(255,255,255,0.5)',
+                              ? '#DD0200'
+                              : 'rgba(217,217,217,0.6)',
                           borderRadius: '6px',
                           padding: '4px 10px',
                           fontSize: '0.72rem',
@@ -353,16 +353,16 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '5px',
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      background: 'rgba(85,16,13,0.3)',
+                      border: '1px solid rgba(85,16,13,0.6)',
                       borderRadius: '6px',
                       padding: '4px 10px',
-                      color: 'rgba(255,255,255,0.7)',
+                      color: 'rgba(217,217,217,0.7)',
                       fontSize: '0.72rem',
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedBib ? <Check size={12} color="#1E6BFF" /> : <Copy size={12} />}
+                    {copiedBib ? <Check size={12} color="#DD0200" /> : <Copy size={12} />}
                     {copiedBib ? 'Copied' : 'Copy All'}
                   </button>
                 </div>
@@ -372,13 +372,13 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                     <div
                       key={c.index}
                       style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(255,255,255,0.07)',
+                        background: 'rgba(85,16,13,0.25)',
+                        border: '1px solid rgba(85,16,13,0.6)',
                         borderRadius: '10px',
                         padding: '12px 14px',
                         fontSize: '0.8rem',
                         lineHeight: 1.45,
-                        color: 'rgba(255,255,255,0.8)',
+                        color: 'rgba(217,217,217,0.85)',
                       }}
                     >
                       <div
@@ -391,21 +391,21 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                       >
                         <span
                           style={{
-                            color: '#1E6BFF',
+                            color: '#DD0200',
                             fontWeight: 700,
                             fontFamily: 'monospace',
                           }}
                         >
                           [{c.index}]
                         </span>
-                        <span style={{ fontWeight: 600, color: '#FFFFFF' }}>
+                        <span style={{ fontWeight: 600, color: '#D9D9D9' }}>
                           {c.title}
                         </span>
                       </div>
                       <div
                         style={{
                           fontSize: '0.72rem',
-                          color: 'rgba(255,255,255,0.4)',
+                          color: 'rgba(217,217,217,0.5)',
                           marginTop: '4px',
                         }}
                       >
@@ -417,7 +417,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                         rel="noreferrer"
                         style={{
                           fontSize: '0.72rem',
-                          color: '#1E6BFF',
+                          color: '#DD0200',
                           textDecoration: 'underline',
                           marginTop: '4px',
                           display: 'inline-block',
@@ -473,7 +473,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                     >
                       <Sparkles
                         size={24}
-                        color="#1E6BFF"
+                        color="#DD0200"
                         style={{ margin: '0 auto 10px', display: 'block' }}
                       />
                       Ask follow-up questions to delve deeper into this research synthesis.
@@ -488,17 +488,17 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                         maxWidth: '85%',
                         background:
                           m.role === 'user'
-                            ? 'rgba(30,107,255,0.2)'
-                            : 'rgba(255,255,255,0.05)',
+                            ? 'rgba(221,2,0,0.2)'
+                            : 'rgba(85,16,13,0.35)',
                         border:
                           m.role === 'user'
-                            ? '1px solid rgba(30,107,255,0.4)'
-                            : '1px solid rgba(255,255,255,0.1)',
+                            ? '1px solid rgba(221,2,0,0.45)'
+                            : '1px solid rgba(85,16,13,0.7)',
                         borderRadius: '12px',
                         padding: '10px 14px',
                         fontSize: '0.82rem',
                         lineHeight: 1.5,
-                        color: '#FFFFFF',
+                        color: '#D9D9D9',
                         whiteSpace: 'pre-wrap',
                       }}
                     >
@@ -510,7 +510,7 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                     <div
                       style={{
                         alignSelf: 'flex-start',
-                        color: '#1E6BFF',
+                        color: '#DD0200',
                         fontSize: '0.8rem',
                         fontStyle: 'italic',
                       }}
@@ -534,11 +534,11 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                     placeholder="Ask a question about this research…"
                     style={{
                       flex: 1,
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.12)',
+                      background: 'rgba(85,16,13,0.35)',
+                      border: '1px solid rgba(221,2,0,0.25)',
                       borderRadius: '8px',
                       padding: '10px 14px',
-                      color: '#FFFFFF',
+                      color: '#D9D9D9',
                       fontSize: '0.85rem',
                       outline: 'none',
                     }}
@@ -547,15 +547,16 @@ export function ReportDrawer({ isOpen, onClose, onOpenVideoModal }: Props) {
                     type="submit"
                     disabled={!inputQuestion.trim() || isAsking}
                     style={{
-                      background: '#1E6BFF',
+                      background: 'linear-gradient(135deg, #DD0200, #55100D)',
                       border: 'none',
                       borderRadius: '8px',
                       padding: '0 16px',
-                      color: '#FFFFFF',
+                      color: '#D9D9D9',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      boxShadow: '0 0 15px rgba(221,2,0,0.4)',
                     }}
                   >
                     <Send size={15} />
@@ -590,11 +591,11 @@ function TabButton({
         gap: '6px',
         padding: '6px 12px',
         borderRadius: '8px',
-        background: active ? 'rgba(30,107,255,0.15)' : 'transparent',
+        background: active ? 'rgba(221,2,0,0.18)' : 'transparent',
         border: active
-          ? '1px solid rgba(30,107,255,0.4)'
+          ? '1px solid rgba(221,2,0,0.45)'
           : '1px solid transparent',
-        color: active ? '#1E6BFF' : 'rgba(255,255,255,0.5)',
+        color: active ? '#DD0200' : 'rgba(217,217,217,0.6)',
         fontSize: '0.78rem',
         fontWeight: 500,
         cursor: 'pointer',

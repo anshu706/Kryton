@@ -1,6 +1,10 @@
 /* ============================================================
    globals.css — Kryton Design System
-   Colors: #05070D (black) · #1E6BFF (blue) · #FFFFFF (white)
+   Palette:
+   - Coffee Bean:  #1A0706 (Deep Background)
+   - Black Cherry: #55100D (Card & Panel Surface)
+   - Racing Red:   #DD0200 (Primary Brand Accent & Glow)
+   - Alabaster:    #D9D9D9 (Text & Light Neutrals)
    ============================================================ */
 
 
@@ -8,33 +12,46 @@
 
 /* ── Brand Tokens ─────────────────────────────────────────── */
 :root {
-  --black:        #05070D;
-  --blue:         #1E6BFF;
-  --white:        #FFFFFF;
+  --coffee-bean:  #1A0706;
+  --black-cherry: #55100D;
+  --racing-red:   #DD0200;
+  --alabaster:    #D9D9D9;
 
-  /* Blue opacity variants */
-  --blue-5:       rgba(30, 107, 255, 0.05);
-  --blue-10:      rgba(30, 107, 255, 0.10);
-  --blue-15:      rgba(30, 107, 255, 0.15);
-  --blue-20:      rgba(30, 107, 255, 0.20);
-  --blue-30:      rgba(30, 107, 255, 0.30);
-  --blue-40:      rgba(30, 107, 255, 0.40);
-  --blue-60:      rgba(30, 107, 255, 0.60);
+  --black:        #1A0706;
+  --blue:         #DD0200; /* Aliased to Racing Red */
+  --accent:       #DD0200;
+  --white:        #D9D9D9; /* Aliased to Alabaster Grey */
 
-  /* White opacity variants */
-  --white-5:      rgba(255, 255, 255, 0.05);
-  --white-8:      rgba(255, 255, 255, 0.08);
-  --white-10:     rgba(255, 255, 255, 0.10);
-  --white-15:     rgba(255, 255, 255, 0.15);
-  --white-20:     rgba(255, 255, 255, 0.20);
-  --white-40:     rgba(255, 255, 255, 0.40);
-  --white-60:     rgba(255, 255, 255, 0.60);
+  /* Racing Red opacity variants */
+  --blue-5:       rgba(221, 2, 0, 0.05);
+  --blue-10:      rgba(221, 2, 0, 0.10);
+  --blue-15:      rgba(221, 2, 0, 0.15);
+  --blue-20:      rgba(221, 2, 0, 0.20);
+  --blue-30:      rgba(221, 2, 0, 0.30);
+  --blue-40:      rgba(221, 2, 0, 0.40);
+  --blue-60:      rgba(221, 2, 0, 0.60);
+
+  /* Black Cherry variants */
+  --cherry-10:    rgba(85, 16, 13, 0.15);
+  --cherry-20:    rgba(85, 16, 13, 0.30);
+  --cherry-40:    rgba(85, 16, 13, 0.50);
+  --cherry-60:    rgba(85, 16, 13, 0.70);
+  --cherry-80:    rgba(85, 16, 13, 0.85);
+
+  /* Alabaster Grey opacity variants */
+  --white-5:      rgba(217, 217, 217, 0.05);
+  --white-8:      rgba(217, 217, 217, 0.08);
+  --white-10:     rgba(217, 217, 217, 0.10);
+  --white-15:     rgba(217, 217, 217, 0.15);
+  --white-20:     rgba(217, 217, 217, 0.20);
+  --white-40:     rgba(217, 217, 217, 0.40);
+  --white-60:     rgba(217, 217, 217, 0.60);
 
   /* Glow shadows */
-  --glow-sm:      0 0 10px rgba(30, 107, 255, 0.3);
-  --glow-md:      0 0 20px rgba(30, 107, 255, 0.4);
-  --glow-lg:      0 0 40px rgba(30, 107, 255, 0.5);
-  --glow-xl:      0 0 60px rgba(30, 107, 255, 0.6);
+  --glow-sm:      0 0 10px rgba(221, 2, 0, 0.35);
+  --glow-md:      0 0 20px rgba(221, 2, 0, 0.45);
+  --glow-lg:      0 0 40px rgba(221, 2, 0, 0.55);
+  --glow-xl:      0 0 60px rgba(221, 2, 0, 0.70);
 
   /* Typography */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -156,13 +173,13 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes pulse-glow-ring {
   0%, 100% {
     box-shadow:
-      0 0 0 0   rgba(30, 107, 255, 0.5),
-      0 0 20px  rgba(30, 107, 255, 0.2);
+      0 0 0 0   rgba(221, 2, 0, 0.5),
+      0 0 20px  rgba(221, 2, 0, 0.2);
   }
   50% {
     box-shadow:
-      0 0 0 8px rgba(30, 107, 255, 0),
-      0 0 30px  rgba(30, 107, 255, 0.4);
+      0 0 0 8px rgba(221, 2, 0, 0),
+      0 0 30px  rgba(221, 2, 0, 0.4);
   }
 }
 
@@ -207,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(30, 107, 255, 0.15) 50%,
+    rgba(221, 2, 0, 0.15) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
