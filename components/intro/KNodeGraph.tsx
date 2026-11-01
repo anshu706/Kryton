@@ -1,3 +1,4 @@
+// components/intro/KNodeGraph.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -178,7 +179,7 @@ export function KNodeGraph({ onComplete }: Props) {
         {/* Halo circles */}
         {K_NODES.map((node) => (
           <circle
-            key={`halo-${i}`}
+            key={`halo-${node.id}`}
             data-halo={node.id}
             cx={CENTER}
             cy={CENTER}
